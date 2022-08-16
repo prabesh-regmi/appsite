@@ -1,0 +1,142 @@
+<d-breadcrumb>
+    <d-breadcrumb-item>
+        <a routerLink="/pages/subscription">Subscription</a>
+    </d-breadcrumb-item>
+    <d-breadcrumb-item>
+        <span>Subscription List</span>
+    </d-breadcrumb-item>
+</d-breadcrumb>
+<div class="container">
+    <d-row [dGutter]="[8,32]">
+        <d-col [dSpan]="4">
+            <d-search [size]="'sm'"></d-search> <!-- (searchFn)="onSearch($event)" -->
+
+        </d-col>
+        <d-col [dSpan]="4">
+            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
+                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
+                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
+                    <span iconPrefix>Subscription Status</span>
+                </d-icon>
+                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
+                    <li role="menuitem">
+                        <a class="devui-dropdown-item">Item 3</a>
+                    </li>
+                </ul>
+            </div>
+        </d-col>
+        <d-col [dSpan]="3">
+            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
+                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
+                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
+                    <span iconPrefix>Program</span>
+                </d-icon>
+                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
+                    <li role="menuitem">
+                        <a class="devui-dropdown-item">Item 3</a>
+                    </li>
+                </ul>
+            </div>
+        </d-col>
+        <d-col [dSpan]="3">
+            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
+                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
+                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
+                    <span iconPrefix>Workout Shift</span>
+                </d-icon>
+                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
+
+                    <li role="menuitem">
+                        <a class="devui-dropdown-item">Item 3</a>
+                    </li>
+                </ul>
+            </div>
+        </d-col>
+        <d-col [dSpan]="4">
+            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
+                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
+                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
+                    <span iconPrefix>Subscription Type</span>
+                </d-icon>
+                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
+                    <li role="menuitem">
+                        <a class="devui-dropdown-item">Item 3</a>
+                    </li>
+                </ul>
+            </div>
+        </d-col>
+        <d-col [dSpan]="3">
+            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
+                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
+                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
+                    <span iconPrefix>Credit</span>
+                </d-icon>
+                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
+
+                    <li role="menuitem">
+                        <a class="devui-dropdown-item">Item 3</a>
+                    </li>
+                </ul>
+            </div>
+        </d-col>
+        <d-col [dSpan]="2">
+            <d-button (click)="openAddDialog()">Add New</d-button>
+        </d-col>
+    </d-row>
+
+    <d-data-table tableLayout="auto" [dataSource]="customerData" [scrollable]="true"
+        [tableOverflowType]="'overlay'">
+        <thead dTableHead>
+            <tr dTableRow>
+                <th dHeadCell>#</th>
+                <th dHeadCell>Customer</th>
+                <th dHeadCell>Program</th>
+                <th dHeadCell>Subscription Type</th>
+                <th dHeadCell>Shift</th>
+                <th dHeadCell>Credit</th>
+                <th dHeadCell>Status</th>
+                <th dHeadCell>Expire On</th>
+                <th dHeadCell>Action</th>
+
+
+            </tr>
+        </thead>
+        <tbody dTableBody>
+            <ng-template let-rowItem="rowItem" let-rowIndex="rowIndex">
+                <tr dTableRow>
+                    <td dTableCell>{{ rowIndex + 1 }}</td>
+                    <td dTableCell>
+                        {{rowItem.fullName| uppercase}}
+                    </td>
+                    <td dTableCell>
+                        {{rowItem.program}}
+                    </td>
+                    <td dTableCell>
+                        {{rowItem.subscriptionType}}
+                    </td>
+                    <td dTableCell>
+                        {{rowItem.shift}}
+                    </td>
+                    <td dTableCell>
+                        {{rowItem.credit}}
+                    </td>
+                    <td  dTableCell>
+                        <span class="status" [style.border]="rowItem.status? 'solid green': 'solid #8982E0'">{{rowItem.status ? 'Active' :"Freeze"}}</span>
+                    </td>
+                    <td dTableCell>
+                        
+                        <span class="status">{{rowItem.expireOn | dayRemaining:rowItem.expireOn}} Days</span>
+
+                    </td>
+                    <td class="icon-group" dTableCell>
+                        
+                        <a (click)="openEditDialog(rowIndex,true)"> <d-icon [icon]="'icon-preview'"></d-icon></a>
+                        <a (click)="openEditDialog(rowIndex,false)"> <d-icon [icon]="'icon-edit'"></d-icon></a>
+                        <d-icon [icon]="'icon-publish'" [rotate]="45"></d-icon>
+                    </td>
+                </tr>
+            </ng-template>
+        </tbody>
+    </d-data-table>
+
+</div>

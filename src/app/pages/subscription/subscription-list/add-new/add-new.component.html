@@ -1,0 +1,114 @@
+<d-card class="card-container">
+    <div class="container">
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="8">
+                <label>Phone Number <span>*</span></label><br>
+                <input dTextInput placeholder="9841000000" id="textInput" [(ngModel)]="customerForm.phoneNumber"/>
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Full Name</label><br>
+                <input dTextInput placeholder="Ram Nepal" id="textInput" [(ngModel)]="customerForm.fullName" />
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Subscription Type <span>*</span></label><br>
+                <input dTextInput placeholder="Monthly" id="textInput" [(ngModel)]="customerForm.subscriptionType" />
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="8">
+                <label>Plan Price <span>*</span></label><br>
+                <input dTextInput placeholder="3000" id="textInput" [(ngModel)]="customerForm.planPrice" />
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Pay <span>*</span></label><br>
+                <input dTextInput placeholder="3000" id="textInput" [(ngModel)]="customerForm.pay" />
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Due Payment</label><br>
+                <input dTextInput placeholder="00" id="textInput" [(ngModel)]="customerForm.duePayment" />
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="16">
+                <div class="no">
+                    <label>Choose Date</label><br>
+                    <d-row [dGutter]="16">
+                    <d-col [dSpan]="12">
+                        <div class="devui-input-group devui-dropdown-origin">
+                            <input
+                              class="devui-input devui-form-control"
+                              placeholder="y/MM/dd"
+                              (click)="datePicker1.toggle()"
+                              name="dp1"
+                              [(ngModel)]="customerForm.startDate"
+                              autocomplete="off"
+                              dDatepicker
+                              #datePicker1="datepicker"
+                            />
+                            <div *ngIf="customerForm.startDate" class="devui-input-group-addon close-icon-wrapper" (click)="datePicker1.clearAll()">
+                              <i class="icon icon-close"></i>
+                            </div>
+                            <div class="devui-input-group-addon" (click)="datePicker1.toggle()">
+                              <i class="icon icon-calendar"></i>
+                            </div>
+                          </div>
+                        </d-col>
+                    <d-col [dSpan]="12">
+                        <div class="devui-input-group devui-dropdown-origin">
+                            <input
+                              class="devui-input devui-form-control"
+                              placeholder="y/MM/dd"
+                              (click)="datePicker2.toggle()"
+                              name="dp2"
+                              [(ngModel)]="customerForm.expireOn"
+                              autocomplete="off"
+                              dDatepicker
+                              #datePicker2="datepicker"
+                              (change)="getData($event)"
+                            />
+                            <div *ngIf="customerForm.expireOn" class="devui-input-group-addon close-icon-wrapper" (click)="datePicker1.clearAll()">
+                              <i class="icon icon-close"></i>
+                            </div>
+                            <div class="devui-input-group-addon" (click)="datePicker1.toggle()">
+                              <i class="icon icon-calendar"></i>
+                            </div>
+                          </div>
+                        </d-col>
+                </d-row>
+                </div>
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Assign By <span>*</span></label><br>
+                <textarea dTextarea placeholder="Sujal Tamang" id="textArea" [(ngModel)]="customerForm.assignBy"></textarea>
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[4,32]">
+            <d-col [dSpan]="8">
+                <d-row [dGutter]="[4,32]">
+                    <d-col [dSpan]="8">
+                        <d-form-control>
+                            <label>Status</label><br>
+                            <d-toggle [(ngModel)]="customerForm.status"></d-toggle>
+                        </d-form-control>
+                    </d-col>
+                    <d-col [dSpan]="8">
+                        <d-form-control>
+                            <label>Freeze</label><br>
+                            <d-toggle [(ngModel)]="customerForm.freeze"></d-toggle>
+                        </d-form-control>
+                    </d-col>
+                </d-row>
+            </d-col>
+            <d-col [dSpan]="8">
+                <br>
+                <d-button (click)="addNewData($event)" width="240%" id="primaryBtn" style="margin-right: 8px">CONFIRM</d-button>
+
+            </d-col>
+            <d-col [dSpan]="8">
+                <br>
+                <d-button width="240px"(click)="cancle()" bsStyle="common" style="margin-right: 8px">CANCEL</d-button>
+
+            </d-col>
+        </d-row>
+    </div>
+</d-card>

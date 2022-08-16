@@ -1,0 +1,28 @@
+d-card{
+    margin-top: 20px;
+    margin-left: 20px;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+d-breadcrumb{
+    margin-left: 20px;
+    padding-top: 20px;
+    }
+.container{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.icon-group{
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+}
+.status{
+    border: solid green;
+    border-width: 1px;
+    padding: 4px 6px;
+    color: green;
+}
+a:hover{
+    cursor:pointer;
+}

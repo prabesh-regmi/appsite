@@ -1,0 +1,319 @@
+<d-card class="card-container">
+    <div *ngIf="!preview; else previewTemplate" class="container">
+        <d-row>
+            <d-col class="heading" [dSpan]="12">
+                <b>BIO</b>
+                </d-col>
+            <d-col class="heading" style="text-align:center;" [dSpan]="12"><b>Emergency Contact</b>
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[8,24]" [dAlign]="'start'" class="base-container">
+            <d-col [dSpan]="8" >
+                <d-col [dSpace]="12" [dSpan]="8"><label>Phone Number</label><br>
+                    <input dTextInput placeholder="9841000000" [(ngModel)]="customerForm.phoneNumber" />
+                </d-col>
+            <d-col  [dSpan]="8"><div class="horizontal-space">
+                <label>Full Name</label><br>
+                <input dTextInput placeholder="Monthly" [(ngModel)]="customerForm.fullName" />
+            
+            </div>
+        </d-col>
+            </d-col>
+            <d-col [dSpan]="8" class="full-height">
+                <div class="center">
+                    <label>Profile Img</label>
+                    <div class="profile-img">
+                        <label class="upload center"><span *ngIf="!customerForm.profileImg" class="icon-op-add"></span>
+                            <img class="profile-img" *ngIf="customerForm.profileImg" src="{{customerForm.profileImg}}">
+                            <input (change)="imageUpload($event)" type="file"></label>
+                    </div>
+                </div>
+                
+            </d-col>
+            <d-col [dSpan]="8">
+                <d-col [dSpan]="8">
+                    <label>Full Name</label><br>
+                    <input dTextInput placeholder="Monthly" [(ngModel)]="customerForm.emergencyContact.fullName" />
+                </d-col>
+                <d-col  [dSpan]="8">
+                    <div class="horizontal-space">
+                        <label>Contact Number</label><br>
+                        <input dTextInput placeholder="Monthly"  [(ngModel)]="customerForm.emergencyContact.contactNumber" />
+                    
+                    </div>
+                    </d-col>
+                </d-col>
+            
+          </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="8">
+                <label>Gender<span>*</span></label><br>
+                <d-radio-group  [values]="['Male','Female']" [direction]="'row'" [(ngModel)]="customerForm.gender"> </d-radio-group>
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Email</label><br>
+                <input dTextInput placeholder="example@gmail.com"  [(ngModel)]="customerForm.email" />
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Opt. Contact Number</label><br>
+                <input dTextInput placeholder="00"  [(ngModel)]="customerForm.emergencyContact.optContactNumber" />
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="8">
+                <label>Address <span>*</span></label><br>
+                <textarea dTextarea placeholder="Sujal Tamang" 
+                    [(ngModel)]="customerForm.address"></textarea>
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Blood Group <span>*</span></label><br>
+                <textarea dTextarea placeholder="Sujal Tamang" 
+                    [(ngModel)]="customerForm.bloodGroup"></textarea>
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Relationship<span>*</span></label><br>
+                <textarea dTextarea placeholder="Sujal Tamang" 
+                    [(ngModel)]="customerForm.emergencyContact.relationship"></textarea>
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="24">
+                <label>Helth Status <span>*</span></label><br>
+                <textarea dTextarea placeholder="Sujal Tamang" 
+                    [(ngModel)]="customerForm.healthStatus"></textarea>
+            </d-col>
+        </d-row>
+        <d-row class="heading">
+            Fitness Programs
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="8">
+                <label>Shift</label><br>
+                <input dTextInput placeholder="Morning"  [(ngModel)]="customerForm.shift" />
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Started Date</label><br>
+                <div class="devui-input-group devui-dropdown-origin">
+                    <input
+                      class="devui-input devui-form-control"
+                      placeholder="y/MM/dd"
+                      (click)="datePicker1.toggle()"
+                      name="dp1"
+                      [(ngModel)]="customerForm.startDate"
+                      autocomplete="off"
+                      dDatepicker
+                      #datePicker1="datepicker"
+                    />
+                    <div *ngIf="customerForm.startDate" class="devui-input-group-addon close-icon-wrapper" (click)="datePicker1.clearAll()">
+                      <i class="icon icon-close"></i>
+                    </div>
+                    <div class="devui-input-group-addon" (click)="datePicker1.toggle()">
+                      <i class="icon icon-calendar"></i>
+                    </div>
+                  </div>
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="24">
+                <label>Programs <span>*</span></label><br>
+                <d-radio-group  [values]="['Gym','Kick Boxing','Cardio','Zumba/Aerobics']" [direction]="'row'" [(ngModel)]="customerForm.program"> </d-radio-group>
+
+            </d-col>
+        </d-row>
+
+        <d-row [dGutter]="[4,32]">
+            <d-col [dSpan]="8">
+                <d-row [dGutter]="[4,32]">
+                    <d-col [dSpan]="8">
+                        <d-form-control>
+                            <label>Status</label><br>
+                            <d-toggle [(ngModel)]="customerForm.status"></d-toggle>
+                        </d-form-control>
+                    </d-col>
+                    <d-col [dSpan]="8">
+                        <d-form-control>
+                            <label>Freeze</label><br>
+                            <d-toggle [(ngModel)]="customerForm.freeze"></d-toggle>
+                        </d-form-control>
+                    </d-col>
+                </d-row>
+            </d-col>
+            <d-col [dSpan]="8">
+                <br>
+                <d-button (click)="editData($event)" width="200%" id="primaryBtn" style="margin-right: 8px">CONFIRM
+                </d-button>
+
+            </d-col>
+            <d-col [dSpan]="8">
+                <br>
+                <d-button (click)="close()" width="200%" bsStyle="common" style="margin-right: 8px">CANCEL</d-button>
+
+            </d-col>
+        </d-row>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ng-template class="container" #previewTemplate>
+        <d-row>
+            <d-col class="heading" [dSpan]="12">
+                <b>BIO</b>
+                </d-col>
+            <d-col class="heading" style="text-align:center;" [dSpan]="12"><b>Emergency Contact</b>
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[8,24]" [dAlign]="'start'" class="base-container">
+            <d-col [dSpan]="8" >
+                <d-col [dSpace]="12" [dSpan]="8"><label>Phone Number</label><br>
+                    <input [disabled]="preview" dTextInput placeholder="" [(ngModel)]="customerForm.phoneNumber" />
+                </d-col>
+            <d-col  [dSpan]="8"><div class="horizontal-space">
+                <label>Full Name</label><br>
+                <input [disabled]="preview" dTextInput placeholder="" [(ngModel)]="customerForm.fullName" />
+            
+            </div>
+        </d-col>
+            </d-col>
+            <d-col [dSpan]="8" class="full-height">
+                <div class="center">
+                    <label>Profile Img</label>
+                    <div class="profile-img">
+                        <label class="upload center"><span *ngIf="!customerForm.profileImg" class="icon-op-add"></span>
+                            <img class="profile-img" *ngIf="customerForm.profileImg" src="{{customerForm.profileImg}}">
+                            <input [disabled]="preview" (change)="imageUpload($event)" type="file"></label>
+                    </div>
+                </div>
+                
+            </d-col>
+            <d-col [dSpan]="8">
+                <d-col [dSpan]="8">
+                    <label>Full Name</label><br>
+                    <input [disabled]="preview" dTextInput placeholder="" [(ngModel)]="customerForm.emergencyContact.fullName" />
+                </d-col>
+                <d-col  [dSpan]="8">
+                    <div class="horizontal-space">
+                        <label>Contact Number</label><br>
+                        <input [disabled]="preview" dTextInput placeholder=""  [(ngModel)]="customerForm.emergencyContact.contactNumber" />
+                    
+                    </div>
+                    </d-col>
+                </d-col>
+            
+          </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="8">
+                <label>Gender<span>*</span></label><br>
+                <d-radio-group  [disabled]="preview" [values]="['Male','Female']" [direction]="'row'" [(ngModel)]="customerForm.gender"> </d-radio-group>
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Email</label><br>
+                <input [disabled]="preview" dTextInput placeholder=""  [(ngModel)]="customerForm.email" />
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Opt. Contact Number</label><br>
+                <input [disabled]="preview" dTextInput placeholder=""  [(ngModel)]="customerForm.emergencyContact.optContactNumber" />
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="8">
+                <label>Address </label><br>
+                <textarea [disabled]="preview" dTextarea placeholder="" 
+                    [(ngModel)]="customerForm.address"></textarea>
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Blood Group </label><br>
+                <textarea [disabled]="preview" dTextarea placeholder="" 
+                    [(ngModel)]="customerForm.bloodGroup"></textarea>
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Relationship</label><br>
+                <textarea [disabled]="preview" dTextarea placeholder="" 
+                    [(ngModel)]="customerForm.emergencyContact.relationship"></textarea>
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="24">
+                <label>Helth Status <span>*</span></label><br>
+                <textarea [disabled]="preview" dTextarea placeholder="" 
+                    [(ngModel)]="customerForm.healthStatus"></textarea>
+            </d-col>
+        </d-row>
+        <d-row class="heading">
+            Fitness Programs
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="8">
+                <label>Shift</label><br>
+                <input [disabled]="preview" dTextInput placeholder=""  [(ngModel)]="customerForm.shift" />
+            </d-col>
+            <d-col [dSpan]="8">
+                <label>Started Date</label><br>
+                    <input
+                    [disabled]="preview"
+                      class="devui-input devui-form-control"
+                      placeholder="y/MM/dd"
+                      (click)="datePicker1.toggle()"
+                      name="dp1"
+                      [(ngModel)]="customerForm.startDate"
+                      autocomplete="off"
+                      dDatepicker
+                      #datePicker1="datepicker"
+                    />
+                    
+                    
+                 
+            </d-col>
+        </d-row>
+        <d-row [dGutter]="[12,32]">
+            <d-col [dSpan]="24">
+                <label>Programs <span>*</span></label><br>
+                <d-radio-group [disabled]="preview"  [values]="['Gym','Kick Boxing','Cardio','Zumba/Aerobics']" [direction]="'row'" [(ngModel)]="customerForm.program"> </d-radio-group>
+
+            </d-col>
+        </d-row>
+
+        <d-row [dGutter]="[4,32]">
+            <d-col [dSpan]="8">
+                <d-row [dGutter]="[4,32]">
+                    <d-col [dSpan]="8">
+                        <d-form-control>
+                            <label>Status</label><br>
+                            <d-toggle [disabled]="preview" [(ngModel)]="customerForm.status"></d-toggle>
+                        </d-form-control>
+                    </d-col>
+                    <d-col [dSpan]="8">
+                        <d-form-control>
+                            <label>Freeze</label><br>
+                            <d-toggle [disabled]="preview" [(ngModel)]="customerForm.freeze"></d-toggle>
+                        </d-form-control>
+                    </d-col>
+                </d-row>
+            </d-col>
+            <d-col [dSpan]="8">
+                <br>
+                <d-button (click)="close()" width="200%" bsStyle="common" style="margin-right: 8px">Close</d-button>
+
+            </d-col>
+        </d-row>
+      </ng-template>
+</d-card>

@@ -1,0 +1,40 @@
+d-card{
+    box-shadow: 0 0 10px #719ECE;
+    padding: 10px;
+
+}
+.heading{
+    font-size: 16px;
+}
+.profile-img{
+    height:100px;
+    width: 100px;
+    background-color: #ddd;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+input[type="file"] {
+    display: none;
+  }
+  .profile-img:hover{
+    cursor: pointer;
+  }
+  .upload{
+    height: 100%;
+    width: 100%;
+  }
+  .upload:hover{
+    cursor: pointer;
+  }
+
+  .horizontal-space{
+    padding-top: 24px;
+
+  }
+  .preview-data{
+    border: solid rgb(189, 180, 221);
+    padding: 4px 6px;
+    margin-top: 8px;
+    width: 100%;
+  }
