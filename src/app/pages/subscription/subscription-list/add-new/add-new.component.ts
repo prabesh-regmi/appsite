@@ -54,7 +54,5 @@ export class AddNewComponent implements OnInit {
           relationship:'',
         }
   };
-  getData(event:any){
-    console.log(event.target.value);
-  }
+
 }

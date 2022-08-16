@@ -5,11 +5,12 @@ import { SubscriptionRoutingModule } from './subscription-routing.module';
 import { SubscriptionComponent } from './subscription.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { SubscriptionListComponent } from './subscription-list/subscription-list.component';
-import { BreadcrumbModule, ButtonModule, CardModule, DataTableModule, DatepickerModule, DropDownModule, FormModule, IconModule, LayoutModule, ModalModule, RadioModule, SearchModule, TextareaModule, TextInputModule, ToggleModule, UploadModule } from 'ng-devui';
+import { BreadcrumbModule, ButtonModule, CardModule, DataTableModule, DatepickerModule, DropDownModule, FormModule, IconModule, LayoutModule, ModalModule, RadioModule, SearchModule, SelectModule, TextareaModule, TextInputModule, ToggleModule, UploadModule } from 'ng-devui';
 import { FormsModule } from '@angular/forms';
 import { AddNewComponent } from './subscription-list/add-new/add-new.component';
 import { EditComponent } from './subscription-list/edit/edit.component';
 import { DayRemainingPipe } from './pipe/day-remaining.pipe';
+import { GetCustomerPipe } from './pipe/get-customer.pipe';
 
 
 
@@ -21,6 +22,7 @@ import { DayRemainingPipe } from './pipe/day-remaining.pipe';
     AddNewComponent,
     EditComponent,
     DayRemainingPipe,
+    GetCustomerPipe,
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { DayRemainingPipe } from './pipe/day-remaining.pipe';
     DataTableModule,
     UploadModule,
     RadioModule,
+    SelectModule
 
   
   ]

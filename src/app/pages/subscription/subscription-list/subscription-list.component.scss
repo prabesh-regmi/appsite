@@ -17,7 +17,7 @@ d-breadcrumb{
  align-items: center;
  justify-content: space-around;
 }
-.status{
+.greenbox{
     border: solid green;
     border-width: 1px;
     padding: 4px 6px;
@@ -25,4 +25,31 @@ d-breadcrumb{
 }
 a:hover{
     cursor:pointer;
+}
+.redbox{
+    border: solid rgb(235, 2, 2);
+    border-width: 1px;
+    padding: 4px 6px;
+    color: rgb(212, 23, 23);
+}
+.yellowbox{
+    border: solid rgb(108, 123, 0);
+    border-width: 1px;
+    padding: 4px 6px;
+    color: rgb(157, 152, 1);
+}
+
+.purplebox{
+    border: solid #8982E0;
+    border-width: 1px;
+    padding: 4px 6px;
+    color: #8982E0;
+}
+.red-text{
+    color: red;
+    font-weight: bold;
+}
+.green-text{
+    color: green;
+    font-weight: bold;
 }

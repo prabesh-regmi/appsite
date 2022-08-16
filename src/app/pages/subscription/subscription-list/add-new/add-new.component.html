@@ -64,12 +64,11 @@
                               autocomplete="off"
                               dDatepicker
                               #datePicker2="datepicker"
-                              (change)="getData($event)"
                             />
-                            <div *ngIf="customerForm.expireOn" class="devui-input-group-addon close-icon-wrapper" (click)="datePicker1.clearAll()">
+                            <div *ngIf="customerForm.expireOn" class="devui-input-group-addon close-icon-wrapper" (click)="datePicker2.clearAll()">
                               <i class="icon icon-close"></i>
                             </div>
-                            <div class="devui-input-group-addon" (click)="datePicker1.toggle()">
+                            <div class="devui-input-group-addon" (click)="datePicker2.toggle()">
                               <i class="icon icon-calendar"></i>
                             </div>
                           </div>

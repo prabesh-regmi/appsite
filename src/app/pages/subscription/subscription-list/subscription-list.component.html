@@ -9,82 +9,52 @@
 <div class="container">
     <d-row [dGutter]="[8,32]">
         <d-col [dSpan]="4">
-            <d-search [size]="'sm'"></d-search> <!-- (searchFn)="onSearch($event)" -->
+            <d-search [size]="'sm'" [(ngModel)]="searchName"></d-search> <!-- (searchFn)="onSearch($event)" -->
 
         </d-col>
         <d-col [dSpan]="4">
-            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
-                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
-                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
-                    <span iconPrefix>Subscription Status</span>
-                </d-icon>
-                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
-                    <li role="menuitem">
-                        <a class="devui-dropdown-item">Item 3</a>
-                    </li>
-                </ul>
-            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                  <d-select [placeholder]="'Subscription Status'" [(ngModel)]="searchStatus" [options]="optionStatus" size="sm"></d-select>
+                </div>
+              </div>
+            
         </d-col>
         <d-col [dSpan]="3">
-            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
-                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
-                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
-                    <span iconPrefix>Program</span>
-                </d-icon>
-                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
-                    <li role="menuitem">
-                        <a class="devui-dropdown-item">Item 3</a>
-                    </li>
-                </ul>
-            </div>
+            <div class="row">
+                <div class="col-md-4">
+                  <d-select [placeholder]="'Program'" [(ngModel)]="searchProgram" [options]="optionProgram" size="sm"></d-select>
+                </div>
+              </div>
         </d-col>
         <d-col [dSpan]="3">
-            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
-                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
-                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
-                    <span iconPrefix>Workout Shift</span>
-                </d-icon>
-                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
-
-                    <li role="menuitem">
-                        <a class="devui-dropdown-item">Item 3</a>
-                    </li>
-                </ul>
-            </div>
+            <div class="row">
+                <div class="col-md-4">
+                  <d-select [placeholder]="'Workout Shift'" [(ngModel)]="searchShift" [options]="optionShift" size="sm"></d-select>
+                </div>
+              </div>
         </d-col>
         <d-col [dSpan]="4">
-            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
-                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
-                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
-                    <span iconPrefix>Subscription Type</span>
-                </d-icon>
-                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
-                    <li role="menuitem">
-                        <a class="devui-dropdown-item">Item 3</a>
-                    </li>
-                </ul>
-            </div>
+            <div class="row">
+                <div class="col-md-4">
+                  <d-select [placeholder]="'Subscription Type'" [(ngModel)]="searchType" [options]="optionType" size="sm"></d-select>
+                </div>
+              </div>
         </d-col>
         <d-col [dSpan]="3">
-            <div class="btn-group" dDropDown [closeScope]="'blank'" (toggleEvent)="onToggle($event)">
-                <d-icon dDropDownToggle class="devui-dropdown-default devui-dropdown-origin"
-                    [icon]="'icon-select-arrow'" [rotate]="rotateDegrees">
-                    <span iconPrefix>Credit</span>
-                </d-icon>
-                <ul dDropDownMenu class="devui-dropdown-menu devui-scrollbar" role="menu">
-
-                    <li role="menuitem">
-                        <a class="devui-dropdown-item">Item 3</a>
-                    </li>
-                </ul>
-            </div>
+            <div class="row">
+                <div class="col-md-4">
+                  <d-select [placeholder]="'Credit'" [(ngModel)]="searchCredit" [options]="optionCredit" size="sm"></d-select>
+                </div>
+              </div>
         </d-col>
         <d-col [dSpan]="2">
             <d-button (click)="openAddDialog()">Add New</d-button>
         </d-col>
     </d-row>
 
-    <d-data-table tableLayout="auto" [dataSource]="customerData" [scrollable]="true"
+    <d-data-table tableLayout="auto" [dataSource]="customerData | getCustomer:searchName" [scrollable]="true"
         [tableOverflowType]="'overlay'">
         <thead dTableHead>
             <tr dTableRow>
@@ -97,8 +67,6 @@
                 <th dHeadCell>Status</th>
                 <th dHeadCell>Expire On</th>
                 <th dHeadCell>Action</th>
-
-
             </tr>
         </thead>
         <tbody dTableBody>
@@ -121,11 +89,11 @@
                         {{rowItem.credit}}
                     </td>
                     <td  dTableCell>
-                        <span class="status" [style.border]="rowItem.status? 'solid green': 'solid #8982E0'">{{rowItem.status ? 'Active' :"Freeze"}}</span>
+                        <span [ngClass]="rowItem.status ? 'greenbox' :'purplebox'">{{rowItem.status ? 'Active' :"Freeze"}}</span>
                     </td>
                     <td dTableCell>
                         
-                        <span class="status">{{rowItem.expireOn | dayRemaining:rowItem.expireOn}} Days</span>
+                        <span [ngClass]="(rowItem.expireOn | dayRemaining:rowItem.expireOn)>10? 'greenbox' :((rowItem.expireOn | dayRemaining:rowItem.expireOn)>0 ? 'yellowbox': 'redbox')">{{rowItem.expireOn | dayRemaining:rowItem.expireOn}} Days</span>
 
                     </td>
                     <td class="icon-group" dTableCell>
