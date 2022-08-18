@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'ng-devui/modal';
 import { AddNewComponent } from './add-new/add-new.component';
-import { CustomerDataList } from './customerDataList';
+import { CustomerDataList } from '../customerDataList';
 import { EditComponent } from './edit/edit.component';
 
 interface Customer {
@@ -32,6 +32,21 @@ interface Customer {
     optContactNumber: string;
     relationship: string;
   };
+  physicalDetail:{
+    weight:number;
+    neck:number;
+    shoulder:number;
+    forearm:number;
+    arm:number;
+    wrist:number;
+    chest:number;
+    waist:number;
+    hip:number;
+    thigh:number;
+    calf:number;
+
+  document: any;
+},
 }
 
 @Component({
@@ -51,12 +66,12 @@ export class SubscriptionListComponent implements OnInit {
   searchType: string = null;
   searchCredit: string = null;
 
-  optionhName: any = null;
-  optionStatus: any = null;
-  optionProgram: any = null;
-  optionShift: any = null;
-  optionType: any = null;
-  optionCredit: any = null;
+  optionhName: any = ['Any'];
+  optionStatus: any = ['Any'];
+  optionProgram: any = ['Any'];
+  optionShift: any = ['Any'];
+  optionType: any = ['Any'];
+  optionCredit: any = ['Any'];
 
   constructor(private dialogService: DialogService) {}
   onToggle(event: any) {
@@ -85,8 +100,8 @@ export class SubscriptionListComponent implements OnInit {
 
   openEditDialog(index: number, preview: boolean) {
     const results = this.dialogService.open({
-      width: '50%',
-      maxHeight: '500px',
+      width: '75%',
+      maxHeight: '1000px',
       title: 'Edit Customer',
       content: EditComponent,
       backdropCloseable: true,
@@ -106,16 +121,16 @@ export class SubscriptionListComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerData = CustomerDataList;
-    this.optionStatus = [
+    this.optionStatus = [...this.optionStatus,
       ...new Set(
         this.customerData.map((item) => {
           return item.status ? 'Active' : 'Freeze';
         })
       ),
     ];
-    this.optionProgram = [...new Set(this.customerData.map((item) => item.program))];
-    this.optionShift = [...new Set(this.customerData.map((item) => item.shift))];
-    this.optionType = [...new Set(this.customerData.map((item) => item.subscriptionType))];
-    this.optionCredit = [...new Set(this.customerData.map((item) => item.credit))];
+    this.optionProgram = [...this.optionProgram, ...new Set(this.customerData.map((item) => item.program))];
+    this.optionShift = [...this.optionShift,...new Set(this.customerData.map((item) => item.shift))];
+    this.optionType = [...this.optionType,...new Set(this.customerData.map((item) => item.subscriptionType))];
+    this.optionCredit = [...this.optionCredit,...new Set(this.customerData.map((item) => item.credit))];
   }
 }

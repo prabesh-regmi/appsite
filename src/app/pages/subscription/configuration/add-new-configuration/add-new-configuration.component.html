@@ -1,0 +1,19 @@
+<div class="modal-test-component">
+
+    <d-row [dGutter]="12">
+        <label >Name</label><br>
+        <input [(ngModel)]="name" dTextInput placeholder="Please Enter" id="textInput" required/>
+    </d-row>
+    <br>
+    <d-row [dGutter]="[30,12]">
+        <d-col  [dGutter]="12" [dSpan]="120">
+            <d-button (click)="cancel()" bsStyle="common" style="margin-right: 8px">Cancel</d-button>
+        </d-col>
+        <d-col  [dGutter]="12" [dSpan]="120">
+            <d-button [disabled]="!(name.length>0)" (click)="addNewData()" id="primaryBtn" style="margin-right: 8px">Add</d-button>
+        </d-col>
+    </d-row>
+    <br>
+    
+
+  </div>

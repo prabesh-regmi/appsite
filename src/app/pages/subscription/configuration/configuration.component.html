@@ -1,1 +1,126 @@
-<p>configuration works!</p>
+<d-breadcrumb>
+    <d-breadcrumb-item>
+        <a routerLink="/pages/subscription">Subscription</a>
+    </d-breadcrumb-item>
+    <d-breadcrumb-item>
+        <span>Configuration</span>
+    </d-breadcrumb-item>
+</d-breadcrumb>
+<div class="container">
+    <div class="table-heading">
+        <h3>Subscription Type</h3>
+        <d-button (click)="openDialog('sub')" type="submit">Add New</d-button>
+
+    </div>
+    <div>
+        <d-data-table [dataSource]="SubscriptionTypeData" [scrollable]="true" [tableOverflowType]="'overlay'">
+            <thead dTableHead>
+                <tr dTableRow>
+                    <th dHeadCell>#</th>
+                    <th dHeadCell>Name</th>
+                    <th dHeadCell>Action</th>
+                </tr>
+            </thead>
+            <tbody dTableBody>
+                <ng-template let-rowItem="rowItem" let-rowIndex="rowIndex">
+                    <tr dTableRow>
+                        <td dTableCell>{{ rowIndex + 1 }}</td>
+                        <td dTableCell>
+                            {{rowItem.name}}
+                        </td>
+                        <td>
+                            <d-icon-group>
+                                <d-icon [icon]="'icon-edit'"></d-icon>
+                                <d-icon [icon]="'icon-delete'"></d-icon>
+                            </d-icon-group>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </d-data-table>
+
+        <d-pagination [size]="'sm'" [total]="pager.total" [(pageSize)]="pager.pageSize" [(pageIndex)]="pager.pageIndex"
+            [maxItems]="10" [canViewTotal]="true" [canJumpPage]="true" [canChangePageSize]="true"
+            (pageIndexChange)="pageIndexChange($event)" (pageSizeChange)="pageSizeChange($event)">
+        </d-pagination>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="table-heading">
+        <h3>Workout Shift</h3>
+        <d-button (click)="openDialog('shift')" type="submit">Add New</d-button>
+    </div>
+    <div>
+        <d-data-table [dataSource]="WorkoutShiftData" [scrollable]="true" [tableOverflowType]="'overlay'">
+            <thead dTableHead>
+                <tr dTableRow>
+                    <th dHeadCell>#</th>
+                    <th dHeadCell>Name</th>
+                    <th dHeadCell>Action</th>
+                </tr>
+            </thead>
+            <tbody dTableBody>
+                <ng-template let-rowItem="rowItem" let-rowIndex="rowIndex">
+                    <tr dTableRow>
+                        <td dTableCell>{{ rowIndex + 1 }}</td>
+                        <td dTableCell>
+                            {{rowItem.name}}
+                        </td>
+                        <td>
+                            <d-icon-group>
+                                <d-icon [icon]="'icon-edit'"></d-icon>
+                                <d-icon [icon]="'icon-delete'"></d-icon>
+                            </d-icon-group>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </d-data-table>
+
+        <d-pagination [size]="'sm'" [total]="pager.total" [(pageSize)]="pager.pageSize" [(pageIndex)]="pager.pageIndex"
+            [maxItems]="10" [canViewTotal]="true" [canJumpPage]="true" [canChangePageSize]="true"
+            (pageIndexChange)="pageIndexChange($event)" (pageSizeChange)="pageSizeChange($event)">
+        </d-pagination>
+    </div>
+</div>
+<div class="container">
+    <div class="table-heading">
+        <h3>Program</h3>
+        <d-button (click)="openDialog('program')" type="submit">Add New</d-button>
+
+    </div>
+    <div>
+        <d-data-table [dataSource]="ProgramData" [scrollable]="true" [tableOverflowType]="'overlay'">
+            <thead dTableHead>
+                <tr dTableRow>
+                    <th dHeadCell>#</th>
+                    <th dHeadCell>Name</th>
+                    <th dHeadCell>Action</th>
+                </tr>
+            </thead>
+            <tbody dTableBody>
+                <ng-template let-rowItem="rowItem" let-rowIndex="rowIndex">
+                    <tr dTableRow>
+                        <td dTableCell>{{ rowIndex + 1 }}</td>
+                        <td dTableCell>
+                            {{rowItem.name}}
+                        </td>
+                        <td>
+                            <d-icon-group>
+                                <d-icon [icon]="'icon-edit'"></d-icon>
+                                <d-icon [icon]="'icon-delete'"></d-icon>
+                            </d-icon-group>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </d-data-table>
+
+        <d-pagination [size]="'sm'" [total]="pager.total" [(pageSize)]="pager.pageSize" [(pageIndex)]="pager.pageIndex"
+            [maxItems]="10" [canViewTotal]="true" [canJumpPage]="true" [canChangePageSize]="true"
+            (pageIndexChange)="pageIndexChange($event)" (pageSizeChange)="pageSizeChange($event)">
+        </d-pagination>
+    </div>
+</div>

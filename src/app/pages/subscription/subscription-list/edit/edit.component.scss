@@ -38,3 +38,19 @@ input[type="file"] {
     margin-top: 8px;
     width: 100%;
   }
+  .edit-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  fieldset {
+    border: 1px solid #000;
+    width: 80%;
+    
+}
+legend{
+  margin-left:10px;
+}
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}

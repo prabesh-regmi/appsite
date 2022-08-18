@@ -1,0 +1,50 @@
+<div>
+     <label>Send To</label>
+    <d-row class="align-horizontal" [dGutter]="[8,32]">
+        <d-col [dSpan]="6">
+
+            <d-radio-group
+            [name]="'season'"
+            [values]="values"
+            [direction]="'row'"
+          >
+          </d-radio-group>
+
+        </d-col>
+
+        <d-col [dSpan]="6">
+
+            <d-select [placeholder]="'Program'" [(ngModel)]="searchProgram" [options]="optionProgram" size="sm">
+            </d-select>
+
+        </d-col>
+        <d-col [dSpan]="6">
+
+            <d-select [placeholder]="'Workout Shift'" [(ngModel)]="searchShift" [options]="optionShift" size="sm">
+            </d-select>
+
+        </d-col>
+        <d-col [dSpan]="6">
+
+            <d-select [placeholder]="'Subscription Type'" [(ngModel)]="searchType" [options]="optionType" size="sm">
+            </d-select>
+
+        </d-col>
+
+
+    </d-row>
+    <d-row>
+    <label>Message</label>
+    <textarea style="min-height:100px" dTextarea placeholder="Type here..." resize="vertical" [(ngModel)]="message"></textarea><br>
+</d-row><br>
+
+    <d-col class="align-horizontal" [dSpan]="8">
+        <d-col [dSpan]="6">
+            <d-button width="200%" (click)="cancel()" bsStyle="common" style="margin-right: 8px">Cancel</d-button>
+        </d-col>
+        <d-col [dSpan]="6">
+            <d-button width="200%" [disabled]="!(message.length>0)" (click)="addNewData()"  style="margin-right: 8px">Conform</d-button>
+        </d-col>
+    </d-col>
+
+</div>

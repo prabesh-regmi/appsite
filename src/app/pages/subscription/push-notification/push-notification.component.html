@@ -1,1 +1,50 @@
-<p>push-notification works!</p>
+<d-breadcrumb>
+    <d-breadcrumb-item>
+        <a routerLink="/pages/subscription">Subscription</a>
+    </d-breadcrumb-item>
+    <d-breadcrumb-item>
+        <span>Push Notification</span>
+    </d-breadcrumb-item>
+</d-breadcrumb>
+<div class="container">
+    <div class="table-heading ">
+        <d-button class="addBtn" (click)="openDialog('sub')" type="submit">Add New</d-button>
+
+    </div>
+    <div>
+        <d-data-table [dataSource]="messages" [scrollable]="true" [tableOverflowType]="'overlay'">
+            <thead dTableHead>
+                <tr dTableRow>
+                    <th width="10%" dHeadCell>#</th>
+                    <th width="60%" dHeadCell>Messgae</th>
+                    <th width="20%" dHeadCell>Date</th>
+                    <th width="10%" dHeadCell>Action</th>
+                </tr>
+            </thead>
+            <tbody dTableBody>
+                <ng-template let-rowItem="rowItem" let-rowIndex="rowIndex">
+                    <tr dTableRow>
+                        <td dTableCell>{{ rowIndex + 1 }}</td>
+                        <td dTableCell>
+                            {{rowItem.message}}
+                        </td>
+                        <td dTableCell>
+                            {{rowItem.date| date: 'dd/MM/yyyy'}}
+                        </td>
+                        <td>
+                            <d-icon-group>
+                                <d-icon [icon]="'icon-edit'"></d-icon>
+                                <d-icon [icon]="'icon-delete'"></d-icon>
+                            </d-icon-group>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </d-data-table>
+
+        <d-pagination [size]="'sm'" [total]="pager.total" [(pageSize)]="pager.pageSize" [(pageIndex)]="pager.pageIndex"
+            [maxItems]="10" [canViewTotal]="true" [canJumpPage]="true" [canChangePageSize]="true"
+            (pageIndexChange)="pageIndexChange($event)" (pageSizeChange)="pageSizeChange($event)">
+        </d-pagination>
+    </div>
+</div>

@@ -3,7 +3,7 @@
         <d-row [dGutter]="[12,32]">
             <d-col [dSpan]="8">
                 <label>Phone Number <span>*</span></label><br>
-                <input dTextInput placeholder="9841000000" id="textInput" [(ngModel)]="customerForm.phoneNumber"/>
+                <input dTextInput placeholder="9841000000" id="textInput" [(ngModel)]="customerForm.phoneNumber" />
             </d-col>
             <d-col [dSpan]="8">
                 <label>Full Name</label><br>
@@ -33,52 +33,41 @@
                 <div class="no">
                     <label>Choose Date</label><br>
                     <d-row [dGutter]="16">
-                    <d-col [dSpan]="12">
-                        <div class="devui-input-group devui-dropdown-origin">
-                            <input
-                              class="devui-input devui-form-control"
-                              placeholder="y/MM/dd"
-                              (click)="datePicker1.toggle()"
-                              name="dp1"
-                              [(ngModel)]="customerForm.startDate"
-                              autocomplete="off"
-                              dDatepicker
-                              #datePicker1="datepicker"
-                            />
-                            <div *ngIf="customerForm.startDate" class="devui-input-group-addon close-icon-wrapper" (click)="datePicker1.clearAll()">
-                              <i class="icon icon-close"></i>
+                        <d-col [dSpan]="12">
+                            <div class="devui-input-group devui-dropdown-origin">
+                                <input class="devui-input devui-form-control" placeholder="y/MM/dd"
+                                    (click)="datePicker1.toggle()" name="dp1" [(ngModel)]="customerForm.startDate"
+                                    autocomplete="off" dDatepicker #datePicker1="datepicker" />
+                                <div *ngIf="customerForm.startDate" class="devui-input-group-addon close-icon-wrapper"
+                                    (click)="datePicker1.clearAll()">
+                                    <i class="icon icon-close"></i>
+                                </div>
+                                <div class="devui-input-group-addon" (click)="datePicker1.toggle()">
+                                    <i class="icon icon-calendar"></i>
+                                </div>
                             </div>
-                            <div class="devui-input-group-addon" (click)="datePicker1.toggle()">
-                              <i class="icon icon-calendar"></i>
-                            </div>
-                          </div>
                         </d-col>
-                    <d-col [dSpan]="12">
-                        <div class="devui-input-group devui-dropdown-origin">
-                            <input
-                              class="devui-input devui-form-control"
-                              placeholder="y/MM/dd"
-                              (click)="datePicker2.toggle()"
-                              name="dp2"
-                              [(ngModel)]="customerForm.expireOn"
-                              autocomplete="off"
-                              dDatepicker
-                              #datePicker2="datepicker"
-                            />
-                            <div *ngIf="customerForm.expireOn" class="devui-input-group-addon close-icon-wrapper" (click)="datePicker2.clearAll()">
-                              <i class="icon icon-close"></i>
+                        <d-col [dSpan]="12">
+                            <div class="devui-input-group devui-dropdown-origin">
+                                <input class="devui-input devui-form-control" placeholder="y/MM/dd"
+                                    (click)="datePicker2.toggle()" name="dp2" [(ngModel)]="customerForm.expireOn"
+                                    autocomplete="off" dDatepicker #datePicker2="datepicker" />
+                                <div *ngIf="customerForm.expireOn" class="devui-input-group-addon close-icon-wrapper"
+                                    (click)="datePicker2.clearAll()">
+                                    <i class="icon icon-close"></i>
+                                </div>
+                                <div class="devui-input-group-addon" (click)="datePicker2.toggle()">
+                                    <i class="icon icon-calendar"></i>
+                                </div>
                             </div>
-                            <div class="devui-input-group-addon" (click)="datePicker2.toggle()">
-                              <i class="icon icon-calendar"></i>
-                            </div>
-                          </div>
                         </d-col>
-                </d-row>
+                    </d-row>
                 </div>
             </d-col>
             <d-col [dSpan]="8">
                 <label>Assign By <span>*</span></label><br>
-                <textarea dTextarea placeholder="Sujal Tamang" id="textArea" [(ngModel)]="customerForm.assignBy"></textarea>
+                <textarea dTextarea placeholder="Sujal Tamang" id="textArea"
+                    [(ngModel)]="customerForm.assignBy"></textarea>
             </d-col>
         </d-row>
         <d-row [dGutter]="[4,32]">
@@ -100,12 +89,13 @@
             </d-col>
             <d-col [dSpan]="8">
                 <br>
-                <d-button (click)="addNewData($event)" width="240%" id="primaryBtn" style="margin-right: 8px">CONFIRM</d-button>
+                <d-button (click)="addNewData($event)" width="240%" id="primaryBtn" style="margin-right: 8px">CONFIRM
+                </d-button>
 
             </d-col>
             <d-col [dSpan]="8">
                 <br>
-                <d-button width="240px"(click)="cancle()" bsStyle="common" style="margin-right: 8px">CANCEL</d-button>
+                <d-button width="240px" (click)="cancle()" bsStyle="common" style="margin-right: 8px">CANCEL</d-button>
 
             </d-col>
         </d-row>

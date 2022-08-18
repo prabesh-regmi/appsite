@@ -28,12 +28,13 @@ export class EditComponent implements OnInit {
   }
   preview:boolean;
   customerForm:any;
-  imageUpload(event:any){
+  imageUpload(event:any,from:string){
       console.log("here");
       var reader = new FileReader();
 
       reader.onload =  () =>{
-        this.customerForm.profileImg= reader.result;
+
+        from==='profile'? this.customerForm.profileImg = reader.result : this.customerForm.physicalDetail.document = reader.result;
           console.log(reader.result);
       }
       

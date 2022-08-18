@@ -1,25 +1,7 @@
-<d-breadcrumb>
-    <d-breadcrumb-item>
-        <a routerLink="/pages/subscription">Subscription</a>
-    </d-breadcrumb-item>
-    <d-breadcrumb-item>
-        <span>Subscription List</span>
-    </d-breadcrumb-item>
-</d-breadcrumb>
 
 <div class="card-container">
     <div class="container">
         <!-- <d-search [isKeyupSearch]="true" (searchFn)="onSearch($event)"></d-search> -->
-        <d-col>
-            <d-search placeholder="Search with Name" [(ngModel)]="searchName" [isKeyupSearch]="true"></d-search>
-        </d-col>
-        <br>
-        <div class="debate-credit">
-            <d-button>DEBATE</d-button>
-
-            <d-button>CREDIT</d-button>
-
-        </div><br>
         <div class="date-search">
             <fieldset>
                 <legend>From-To</legend>
@@ -55,42 +37,49 @@
                 </d-row>
             </fieldset>
 
-            <button class="search-btn">SEARCH</button>
+            <button (click)="datePicker2.clearAll();datePicker1.clearAll()" class="search-btn" style="background-color: rgb(122, 123, 122) ; color:white;margin-left: 10px;">Reset</button>
+            <button (click)="exportexcel()" class="search-btn" style="background-color: rgb(250, 255, 250) ; color:rgb(0, 0, 0);margin-left: 10px;border: solid black; border-width:1px">  <d-icon [icon]="'icon-op-download'" [operable]="true"></d-icon>
+                Export</button>
 
         </div><br>
         <label ><b>PAYMENT</b></label><br>
         <div>
-            <d-data-table tableLayout="auto" [dataSource]="memberData|getPayment:searchName:from:to" [scrollable]="true" [tableOverflowType]="'overlay'">
+            <d-data-table id="exel-tabel"  tableLayout="auto" [dataSource]="data.data|getHistory:from:to" [scrollable]="true" [tableOverflowType]="'overlay'">
                 <thead dTableHead>
                     <tr dTableRow>
-                        <th dHeadCell>Member Name</th>
+                        <th dHeadCell>#</th>
+                        <th dHeadCell>Total Amount</th>
                         <th dHeadCell>TXD</th>
-                        <th dHeadCell>Amount</th>
+                        <th dHeadCell>Paid Amount</th>
+                        <th dHeadCell>Balance Amount</th>
+                        <th dHeadCell>Assigned By</th>
                     </tr>
                 </thead>
                 <tbody dTableBody>
                     <ng-template let-rowItem="rowItem" let-rowIndex="rowIndex">
                         <tr dTableRow>
-                            <td dTableCell><a style="text-decoration: underline;cursor: pointer;" (click)="openSummeryDialog(rowItem.id)">{{rowItem.name}}</a></td>
                             <td dTableCell>
-                                {{rowItem.paymentHistory[rowItem.paymentHistory.length-1].txd}}
+                                {{rowIndex}}
                             </td>
                             <td dTableCell>
-                                {{rowItem.paymentHistory[rowItem.paymentHistory.length-1].totalAmount}}
+                                {{rowItem.totalAmount}}
+                            </td>
+                            <td dTableCell>
+                                {{rowItem.txd}}
+                            </td>
+                            <td dTableCell>
+                                {{rowItem.paidAmount}}
+                            </td>
+                            <td dTableCell>
+                                {{rowItem.balance}}
+                            </td>
+                            <td dTableCell>
+                                {{rowItem.assignBy}}
                             </td>
                         </tr>
                         
                     </ng-template>
                    
-                </tbody>
-                <tbody>
-                    <ng-template>
-                    <tr dTableRow>
-                        <th dHeadCell>#{{memberData.length}} Payments</th>
-                        <th dHeadCell>Total</th>
-                        <th dHeadCell>Amount</th>
-                    </tr>
-                </ng-template>
                 </tbody>
                 
             </d-data-table>

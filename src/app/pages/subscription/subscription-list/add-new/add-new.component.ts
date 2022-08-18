@@ -52,7 +52,23 @@ export class AddNewComponent implements OnInit {
           contactNumber:'',
           optContactNumber:'',
           relationship:'',
-        }
+        },
+        physicalDetail:{
+          weight:null,
+          neck:null,
+          shoulder:null,
+          forearm:null,
+          arm:null,
+          wrist:null,
+          chest:null,
+          waist:null,
+          hip:null,
+          thigh:null,
+          calf:null,
+      
+       
+        document:'',
+      },
   };
 
 }

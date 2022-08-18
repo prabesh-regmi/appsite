@@ -5,16 +5,25 @@ import { SubscriptionRoutingModule } from './subscription-routing.module';
 import { SubscriptionComponent } from './subscription.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { SubscriptionListComponent } from './subscription-list/subscription-list.component';
-import { BreadcrumbModule, ButtonModule, CardModule, DataTableModule, DatepickerModule, DropDownModule, FormModule, IconModule, LayoutModule, ModalModule, RadioModule, SearchModule, SelectModule, TextareaModule, TextInputModule, ToggleModule, UploadModule } from 'ng-devui';
+import { BreadcrumbModule, ButtonModule, CardModule, DataTableModule, DatepickerModule, DropDownModule, FormModule, IconModule, LayoutModule, ModalModule, PaginationModule, RadioModule, SearchModule, SelectModule, TextareaModule, TextInputModule, ToggleModule, UploadModule } from 'ng-devui';
 import { FormsModule } from '@angular/forms';
 import { AddNewComponent } from './subscription-list/add-new/add-new.component';
 import { EditComponent } from './subscription-list/edit/edit.component';
 import { DayRemainingPipe } from './pipe/day-remaining.pipe';
 import { GetCustomerPipe } from './pipe/get-customer.pipe';
+import { AddNewConfigurationComponent } from './configuration/add-new-configuration/add-new-configuration.component';
+import { FinanceSummeryComponent } from './finance-summery/finance-summery.component';
+import { PushNotificationComponent } from './push-notification/push-notification.component';
+import { NotificationHistoryComponent } from './notification-history/notification-history.component';
+import { SubscriptionMessageSettingComponent } from './subscription-message-setting/subscription-message-setting.component';
+import { GetPaymentPipe } from './pipe/get-payment.pipe';
+import { SingleFinanceSummeryComponent } from './finance-summery/single-finance-summery/single-finance-summery.component';
+import { GetHistoryPipe } from './pipe/get-history.pipe';
+import { PushNotifyComponent } from './push-notification/push-notify/push-notify.component';
 
 
 
-@NgModule({
+@NgModule({ 
   declarations: [
     SubscriptionComponent,
     ConfigurationComponent,
@@ -23,6 +32,11 @@ import { GetCustomerPipe } from './pipe/get-customer.pipe';
     EditComponent,
     DayRemainingPipe,
     GetCustomerPipe,
+    AddNewConfigurationComponent,
+    FinanceSummeryComponent, 
+    PushNotificationComponent,
+    NotificationHistoryComponent, 
+    SubscriptionMessageSettingComponent, GetPaymentPipe, SingleFinanceSummeryComponent, GetHistoryPipe, PushNotifyComponent
   ],
   imports: [
     CommonModule,
@@ -44,8 +58,8 @@ import { GetCustomerPipe } from './pipe/get-customer.pipe';
     DataTableModule,
     UploadModule,
     RadioModule,
-    SelectModule
-
+    SelectModule,
+    PaginationModule,
   
   ]
 })

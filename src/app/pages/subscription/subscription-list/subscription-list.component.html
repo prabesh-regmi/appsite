@@ -13,49 +13,55 @@
 
         </d-col>
         <d-col [dSpan]="4">
-            
+
             <div class="row">
                 <div class="col-md-4">
-                  <d-select [placeholder]="'Subscription Status'" [(ngModel)]="searchStatus" [options]="optionStatus" size="sm"></d-select>
+                    <d-select [placeholder]="'Subscription Status'" [(ngModel)]="searchStatus" [options]="optionStatus"
+                        size="sm" #status></d-select>
                 </div>
-              </div>
-            
+            </div>
+
         </d-col>
         <d-col [dSpan]="3">
             <div class="row">
                 <div class="col-md-4">
-                  <d-select [placeholder]="'Program'" [(ngModel)]="searchProgram" [options]="optionProgram" size="sm"></d-select>
+                    <d-select [placeholder]="'Program'" [(ngModel)]="searchProgram" [options]="optionProgram" size="sm">
+                    </d-select>
                 </div>
-              </div>
+            </div>
         </d-col>
         <d-col [dSpan]="3">
             <div class="row">
                 <div class="col-md-4">
-                  <d-select [placeholder]="'Workout Shift'" [(ngModel)]="searchShift" [options]="optionShift" size="sm"></d-select>
+                    <d-select [placeholder]="'Workout Shift'" [(ngModel)]="searchShift" [options]="optionShift"
+                        size="sm"></d-select>
                 </div>
-              </div>
+            </div>
         </d-col>
         <d-col [dSpan]="4">
             <div class="row">
                 <div class="col-md-4">
-                  <d-select [placeholder]="'Subscription Type'" [(ngModel)]="searchType" [options]="optionType" size="sm"></d-select>
+                    <d-select [placeholder]="'Subscription Type'" [(ngModel)]="searchType" [options]="optionType"
+                        size="sm"></d-select>
                 </div>
-              </div>
+            </div>
         </d-col>
         <d-col [dSpan]="3">
             <div class="row">
                 <div class="col-md-4">
-                  <d-select [placeholder]="'Credit'" [(ngModel)]="searchCredit" [options]="optionCredit" size="sm"></d-select>
+                    <d-select [placeholder]="'Credit'" [(ngModel)]="searchCredit" [options]="optionCredit" size="sm">
+                    </d-select>
                 </div>
-              </div>
+            </div>
         </d-col>
         <d-col [dSpan]="2">
             <d-button (click)="openAddDialog()">Add New</d-button>
         </d-col>
     </d-row>
 
-    <d-data-table tableLayout="auto" [dataSource]="customerData | getCustomer:searchName" [scrollable]="true"
-        [tableOverflowType]="'overlay'">
+    <d-data-table tableLayout="auto"
+        [dataSource]="customerData | getCustomer:searchName:searchStatus:searchProgram:searchShift:searchType:searchCredit"
+        [scrollable]="true" [tableOverflowType]="'overlay'">
         <thead dTableHead>
             <tr dTableRow>
                 <th dHeadCell>#</th>
@@ -88,18 +94,25 @@
                     <td dTableCell>
                         {{rowItem.credit}}
                     </td>
-                    <td  dTableCell>
-                        <span [ngClass]="rowItem.status ? 'greenbox' :'purplebox'">{{rowItem.status ? 'Active' :"Freeze"}}</span>
+                    <td dTableCell>
+                        <span [ngClass]="rowItem.status ? 'greenbox' :'purplebox'">{{rowItem.status ? 'Active'
+                            :"Freeze"}}</span>
                     </td>
                     <td dTableCell>
-                        
-                        <span [ngClass]="(rowItem.expireOn | dayRemaining:rowItem.expireOn)>10? 'greenbox' :((rowItem.expireOn | dayRemaining:rowItem.expireOn)>0 ? 'yellowbox': 'redbox')">{{rowItem.expireOn | dayRemaining:rowItem.expireOn}} Days</span>
+
+                        <span
+                            [ngClass]="(rowItem.expireOn | dayRemaining:rowItem.expireOn)>10? 'greenbox' :((rowItem.expireOn | dayRemaining:rowItem.expireOn)>0 ? 'yellowbox': 'redbox')">{{rowItem.expireOn
+                            | dayRemaining:rowItem.expireOn}} Days</span>
 
                     </td>
                     <td class="icon-group" dTableCell>
-                        
-                        <a (click)="openEditDialog(rowIndex,true)"> <d-icon [icon]="'icon-preview'"></d-icon></a>
-                        <a (click)="openEditDialog(rowIndex,false)"> <d-icon [icon]="'icon-edit'"></d-icon></a>
+
+                        <a (click)="openEditDialog(rowIndex,true)">
+                            <d-icon [icon]="'icon-preview'"></d-icon>
+                        </a>
+                        <a (click)="openEditDialog(rowIndex,false)">
+                            <d-icon [icon]="'icon-edit'"></d-icon>
+                        </a>
                         <d-icon [icon]="'icon-publish'" [rotate]="45"></d-icon>
                     </td>
                 </tr>
