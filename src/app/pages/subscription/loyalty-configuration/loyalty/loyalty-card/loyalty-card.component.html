@@ -1,0 +1,36 @@
+<div class='loyalty-type'>
+    <div class='loyalty-head'>
+      <p><b>Loyalty Card</b></p>
+      <!-- <button class='button'>Add New</button>  -->
+    </div>
+  
+  
+   <div class="loyalty-box">
+        <!--For Loyalty Card -->
+  
+      <d-card >
+        <div class="container" onmouseleave="this.lastElementChild.style.display='none'" onmouseenter="this.lastElementChild.style.display='flex'">
+          <img [src]="loyaltyCardSrc" alt="can not load" height="70px">
+          <div class="btn-group">
+            <label  style="padding-top: 6px;" class="btn">
+              <input (change)="imageUpload($event,'loyalty')" type=file [(ngModel)]="loyaltyCardSrc"  accept=".jpg, .jpeg, .png" name="files[]" size=30>Edit
+          </label><button (btnClick)="open()" class="btn" style="margin-left: 4px;" d-button   >View</button> 
+          </div>
+        </div>
+      </d-card>
+  
+          <!--For Stamp -->
+  
+      <d-card >
+        <div class="container" onmouseleave="this.lastElementChild.style.display='none'" onmouseenter="this.lastElementChild.style.display='flex'">
+          <img [src]="stampSrc" alt="can not load" height="70px">
+          <div class="btn-group">
+            <label  style="padding-top: 6px;" class="btn">
+              <input (change)="imageUpload($event,'stamp')"  type=file  accept=".jpg, .jpeg, .png" [(ngModel)]="stampSrc" name="files[]" size=30>Edit
+          </label>
+          <button (click)="open()" class="btn" style="margin-left: 4px;" d-button  >View</button> 
+          </div>
+        </div>
+    </d-card>
+    </div>
+  

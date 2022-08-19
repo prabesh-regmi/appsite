@@ -1,0 +1,92 @@
+d-data-table {
+    border: 1px solid #000000;
+    margin-top: 15px;
+}
+
+td {
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+}
+
+.loyalty-type {
+    margin-left: 10px;
+}
+
+.loyalty-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    background-color: #000000;
+    /* black */
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.color-fill {
+    width: 40px;
+    height: 10px;
+}
+
+a {
+    color: inherit;
+}
+
+d-select {
+    margin-right: 8px;
+    width: 120px;
+}
+
+d-select {
+    border: 0px solid #719ECE;
+    width: 60%;
+
+}
+
+select {
+    border: 0px solid #719ECE;
+    width: 80%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    cursor: pointer;
+
+}
+
+d-select::-ms-expand {
+    display: none;
+}
+
+select:focus {
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.save {
+    margin-right: 15px;
+}
+
+option:hover {
+    background-color: none;
+}
+
+textarea {
+    width: 100%;
+    border: 0px solid #719ECE;
+    background-color: #fff;
+    resize: none;
+    overflow: hidden;
+    height: 30px;
+
+}
+
+textarea:focus {
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+}

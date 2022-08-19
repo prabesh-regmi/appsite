@@ -1,0 +1,31 @@
+<div class="message-box">
+  <div class="inner-content">
+    <b>Message Setting</b>
+  </div>
+
+    <d-data-table [dataSource]="messageData">
+      <thead dTableHead>
+        <tr dTableRow>
+          <th width="20%" dHeadCell>#</th>
+          <th width="30%" dHeadCell>Type</th>
+          <th width="30%" dHeadCell>Message</th>
+          <th width="20%" dHeadCell>Action</th>
+        </tr>
+      </thead>
+      <tbody dTableBody>
+        <ng-template let-rowItem="rowItem" let-rowIndex="rowIndex">
+          <tr>
+            <ng-container>
+              <td sty>{{ rowItem.id }}</td>
+              <td><textarea (change)="saveEdit(rowItem.id)" type="text" d-input
+                  [(ngModel)]="editMessage[rowItem.id].data.type"></textarea></td>
+              <td><textarea (change)="saveEdit(rowItem.id)" type="text" d-input
+                  [(ngModel)]="editMessage[rowItem.id].data.message"></textarea> </td>
+              <td><a>  <d-icon [icon]="'icon-edit'" [operable]="true"></d-icon>
+              </a></td>
+            </ng-container>
+          </tr>
+        </ng-template>
+    </tbody>
+    </d-data-table>
+</div>

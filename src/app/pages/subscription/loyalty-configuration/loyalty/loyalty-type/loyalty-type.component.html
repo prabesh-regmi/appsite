@@ -1,0 +1,35 @@
+<div class='loyalty-type'>
+  <div class='loyalty-head'>
+    <p><b>Loyalty Type</b></p>
+    <!-- <button class='button'>Add New</button>  -->
+  </div>
+  <d-data-table [dataSource]="loyaltyTypeData">
+    <thead dTableHead>
+      <tr dTableRow>
+        <th width="20%" dHeadCell>#</th>
+        <th width="30%" dHeadCell>Name</th>
+        <th width="30%" dHeadCell>Color</th>
+        <th width="20%" dHeadCell>Action</th>
+      </tr>
+    </thead>
+
+    <tbody dTableBody>
+      <ng-template let-rowItem="rowItem" let-rowIndex="rowIndex">
+        <tr>
+          <ng-container>
+            <td>{{ rowItem.id }}</td>
+            <td><textarea (change)="saveEdit(rowItem.id)" type="text" d-input
+                [(ngModel)]="editColor[rowItem.id].data.customer"></textarea></td>
+            <td>
+              <input (change)="saveEdit(rowItem.id)" [(ngModel)]="editColor[rowItem.id].data.color" type="color">
+            </td>
+            <td>
+              <a (click)="startEdit(rowItem.id)">  <d-icon [icon]="'icon-edit'" [operable]="true"></d-icon>
+              </a>
+            </td>
+          </ng-container>
+        </tr>
+      </ng-template>
+    </tbody>
+  </d-data-table>
+</div>

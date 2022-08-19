@@ -120,6 +120,10 @@ export class PagesComponent implements OnInit {
             link: '/pages/subscription/subscription-message-setting',
           },
           {
+            title:'Loyalty Configuration',
+            link: '/pages/subscription/loyalty-configuration',
+          },
+          {
             title:'Configuration',
             link: '/pages/subscription/configuration',
           },

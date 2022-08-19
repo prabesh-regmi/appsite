@@ -1,0 +1,39 @@
+.message-box{
+    margin-top: 10px;
+  }
+  d-data-table {
+      border: 1px solid #000;
+      margin-top: 14px;
+      
+    }
+    
+    d-data-table td{
+        border:1px solid black;
+        border-left: none;
+        border-right: none;
+        height: 50px;
+    }
+    a{
+      color: inherit;
+    }
+    .save {
+      margin-right: 20px;
+    }
+    textarea, select {
+      width: 100%;
+      border: 0px solid #719ECE;
+      background-color: #fff;
+      resize: none;
+      overflow:hidden;
+      height: inherit;
+      overflow-wrap:break-word;
+      transition: height 0.3s;
+  
+    }
+        textarea:focus, div:focus { 
+          outline: none !important;
+          border-color: #719ECE;
+          box-shadow: 0 0 10px #719ECE;
+          height: 80px;
+  
+        }

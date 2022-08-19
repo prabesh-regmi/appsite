@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { FinanceSummeryComponent } from './finance-summery/finance-summery.component';
+import { LoyaltyConfigurationComponent } from './loyalty-configuration/loyalty-configuration.component';
 import { NotificationHistoryComponent } from './notification-history/notification-history.component';
 import { PushNotificationComponent } from './push-notification/push-notification.component';
 import { SubscriptionListComponent } from './subscription-list/subscription-list.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'notification-history', component: NotificationHistoryComponent },
       { path: 'subscription-message-setting', component: SubscriptionMessageSettingComponent },
       { path: 'configuration', component: ConfigurationComponent },
+      { path: 'loyalty-configuration', component: LoyaltyConfigurationComponent},
       { path: '', redirectTo: 'subscription-list', pathMatch: 'full' },
     ],
   },

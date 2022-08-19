@@ -20,6 +20,11 @@ import { GetPaymentPipe } from './pipe/get-payment.pipe';
 import { SingleFinanceSummeryComponent } from './finance-summery/single-finance-summery/single-finance-summery.component';
 import { GetHistoryPipe } from './pipe/get-history.pipe';
 import { PushNotifyComponent } from './push-notification/push-notify/push-notify.component';
+import { LoyaltyConfigurationComponent } from './loyalty-configuration/loyalty-configuration.component';
+import { LoyaltyCardComponent } from './loyalty-configuration/loyalty/loyalty-card/loyalty-card.component';
+import { LoyaltyTypeComponent } from './loyalty-configuration/loyalty/loyalty-type/loyalty-type.component';
+import { LoyaltyComponent } from './loyalty-configuration/loyalty/loyalty.component';
+import { MessageSettingComponent } from './loyalty-configuration/message-setting/message-setting.component';
 
 
 
@@ -36,7 +41,16 @@ import { PushNotifyComponent } from './push-notification/push-notify/push-notify
     FinanceSummeryComponent, 
     PushNotificationComponent,
     NotificationHistoryComponent, 
-    SubscriptionMessageSettingComponent, GetPaymentPipe, SingleFinanceSummeryComponent, GetHistoryPipe, PushNotifyComponent
+    SubscriptionMessageSettingComponent,
+    GetPaymentPipe, 
+    SingleFinanceSummeryComponent, 
+    GetHistoryPipe, 
+    PushNotifyComponent, 
+    LoyaltyConfigurationComponent, 
+    LoyaltyCardComponent, 
+    LoyaltyTypeComponent,
+    LoyaltyComponent,
+    MessageSettingComponent
   ],
   imports: [
     CommonModule,
