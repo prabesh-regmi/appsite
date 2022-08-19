@@ -14,7 +14,7 @@
           <div class="btn-group">
             <label  style="padding-top: 6px;" class="btn">
               <input (change)="imageUpload($event,'loyalty')" type=file [(ngModel)]="loyaltyCardSrc"  accept=".jpg, .jpeg, .png" name="files[]" size=30>Edit
-          </label><button (btnClick)="open()" class="btn" style="margin-left: 4px;" d-button   >View</button> 
+          </label><button class="btn" style="margin-left: 4px;" d-button   >View</button> 
           </div>
         </div>
       </d-card>
@@ -28,7 +28,7 @@
             <label  style="padding-top: 6px;" class="btn">
               <input (change)="imageUpload($event,'stamp')"  type=file  accept=".jpg, .jpeg, .png" [(ngModel)]="stampSrc" name="files[]" size=30>Edit
           </label>
-          <button (click)="open()" class="btn" style="margin-left: 4px;" d-button  >View</button> 
+          <button class="btn" style="margin-left: 4px;" d-button  >View</button> 
           </div>
         </div>
     </d-card>

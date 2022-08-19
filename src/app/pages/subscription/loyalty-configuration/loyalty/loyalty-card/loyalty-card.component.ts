@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -8,7 +7,6 @@ import { Subject } from 'rxjs';
   styleUrls: ['./loyalty-card.component.scss']
 })
 export class LoyaltyCardComponent implements OnInit {
-  customSub = new Subject<HTMLElement>();
 
   isVisible = false;
   isConfirmLoading = false;
@@ -22,7 +20,7 @@ export class LoyaltyCardComponent implements OnInit {
   stampSrc:any = '../../../../../../assets/approved.jpg';
   isrc=null;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor() {}
   imageUpload(event:any,from:string){
     console.log("here");
     var reader = new FileReader();
@@ -36,10 +34,7 @@ export class LoyaltyCardComponent implements OnInit {
     reader.readAsDataURL(event.target.files[0]);
 
 }
-open() {
-  this.customSub.next(this.elementRef.nativeElement.querySelector('img'));
-  console.log('clicked')
-}
+
 
   // showModal(): void {
   //   this.isVisible = true;
